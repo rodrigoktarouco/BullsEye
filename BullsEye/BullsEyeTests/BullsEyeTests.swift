@@ -38,5 +38,11 @@ class BullsEyeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testeNewRound() {
+        game?.startNewRound(points: 100)
+        XCTAssertEqual(game?.score, 100)
+        XCTAssertEqual(game?.round, 2)
+    }
 
 }
