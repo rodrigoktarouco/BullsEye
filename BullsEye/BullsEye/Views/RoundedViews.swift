@@ -23,16 +23,34 @@ struct RoundedImageViewStroke: View {
 }
 
 struct RoundedImageViewFilled: View {
-    
     var systemImage: String
     
     var body: some View {
-        Image(systemName: systemImage)
-            .font(.title)
-            .foregroundColor(Color("ButtonFilledTextColor"))
-            .frame(width: 56, height: 56)
-            .background(
-                Circle().fill(Color("ButtonFilledBackgroundColor"))
+        VStack {
+            Image(systemName: systemImage)
+                .font(.title)
+                .foregroundColor(Color("ButtonFilledTextColor"))
+                .frame(width: 56, height: 56)
+                .background(
+                    Circle().fill(Color("ButtonFilledBackgroundColor"))
+            )
+            
+        }
+    }
+}
+
+struct RoundedTextView: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.title2)
+            .bold()
+            .kerning(-0.2)
+            .frame(width: 68.0, height: 56.0)
+            .overlay(
+                RoundedRectangle(cornerRadius: 21).strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2.0)
+                   
+                    
             )
     }
 }

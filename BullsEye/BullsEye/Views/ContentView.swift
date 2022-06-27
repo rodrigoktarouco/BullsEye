@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         let roundedValue = sliderValue.rounded()
         ZStack {
-            Color("BackgroundColor").edgesIgnoringSafeArea(.all)
+            BackgroundView(game: $game)
             VStack {
                 InstructionsHeaderView(game: $game)
                 SliderView(sliderValue: $sliderValue).padding(.horizontal)
@@ -44,7 +44,6 @@ struct SliderView: View {
         HStack {
             SliderLabelTextView(text: "0")
             Slider(value: $sliderValue, in: 1.0...100.0)
-                .padding(.horizontal)
                 .foregroundColor(Color("FontColor"))
             SliderLabelTextView(text: "100")
         }
