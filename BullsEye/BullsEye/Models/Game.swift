@@ -14,7 +14,14 @@ struct Game {
     
     func returnPoints(sliderValue: Int) -> Int {
         let points = 100 - abs((target - sliderValue))
-        return points
+        switch points {
+        case 100:
+            return points + 100
+        case 98...99:
+            return points + 50
+        default:
+            return points
+        }
     }
     
     mutating func startNewRound(points: Int) {
