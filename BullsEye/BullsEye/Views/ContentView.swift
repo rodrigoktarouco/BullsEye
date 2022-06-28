@@ -81,9 +81,12 @@ struct HitMeButtonView: View {
                 .strokeBorder(Color.white, lineWidth: 3.0)
         )
         .alert("Hello there!", isPresented: $alertIsVisible) {
-            Button("Awesome!") {}
+            Button("Awesome!") {
+                let roundedValue = roundedValue
+                let points = game.returnPoints(sliderValue: roundedValue)
+                game.startNewRound(points: points)
+            }
         } message: {
-            let roundedValue = roundedValue
             Text("The slider's value is \(roundedValue).\n" + "You scored \(game.returnPoints(sliderValue: roundedValue)) points.")
         }
     }
