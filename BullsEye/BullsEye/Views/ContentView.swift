@@ -18,10 +18,10 @@ struct ContentView: View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                InstructionsHeaderView(game: $game)
-                SliderView(sliderValue: $sliderValue).padding(.horizontal)
+                InstructionsHeaderView(game: $game).padding(.bottom, 100)
                 HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game, roundedValue: Int(roundedValue))
             }
+            SliderView(sliderValue: $sliderValue)
         }
     }
 }
@@ -30,9 +30,10 @@ struct InstructionsHeaderView: View {
     @Binding var game: Game
     
     var body: some View {
+        VStack(spacing: 8) {
         InstructionsTextView(text: "🎯🎯🎯\nput the bulls eye as close as you can")
-            .padding()
         BigtextView(text: "\(game.target)")
+        }
     }
 }
 
