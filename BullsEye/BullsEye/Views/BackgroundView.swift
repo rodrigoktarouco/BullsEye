@@ -58,7 +58,7 @@ struct FooterInfoView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            LabelTextView(text: title)
+            BodyTextView(text: title)
             RoundedTextView(text: text)
         }
         

@@ -17,7 +17,6 @@ struct InstructionsTextView: View {
             .multilineTextAlignment(.center)
             .lineSpacing(4)
             .font(.footnote)
-            
             .foregroundColor(Color("FontColor"))
     }
 }
@@ -42,7 +41,7 @@ struct SliderLabelTextView: View {
     }
 }
 
-struct LabelTextView: View {
+struct ButtonTextView: View {
     var text: String
     
     var body: some View {
@@ -54,11 +53,43 @@ struct LabelTextView: View {
     }
 }
 
+struct BodyTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text("You scored \(text)\n 🎉🎉🎉")
+            .font(.subheadline)
+            .foregroundColor(Color("FontColor"))
+            .fontWeight(.semibold)
+            .multilineTextAlignment(.center)
+            .lineSpacing(16)
+    }
+}
+
+struct ButtonAlertTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(.white)
+            .bold()
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                Color("AccentColor")
+            )
+            .cornerRadius(12)
+            
+    }
+}
+
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             InstructionsTextView(text: "Instructions")
             BigtextView(text: "999")
-        }
+            BodyTextView(text: "200")
+            ButtonAlertTextView(text: "Start new Round")
+        }.padding()
     }
 }
