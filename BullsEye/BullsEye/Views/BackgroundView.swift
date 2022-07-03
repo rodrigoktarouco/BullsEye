@@ -90,5 +90,6 @@ struct RingsView: View {
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
         BackgroundView(game: .constant(Game()))
+        BackgroundView(game: .constant(Game())).previewInterfaceOrientation(.landscapeLeft)
     }
 }

@@ -4,7 +4,7 @@
 //
 //  Created by Rodrigo Tarouco on 11/06/22.
 //
- 
+
 import SwiftUI
 
 struct ContentView: View {
@@ -14,25 +14,33 @@ struct ContentView: View {
     @State private var game = Game()
     
     var body: some View {
-        let roundedValue = sliderValue.rounded()
-        ZStack {
-            BackgroundView(game: $game)
-            VStack {
-                InstructionsHeaderView(game: $game).padding(.bottom, 100)
-                HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game, roundedValue: Int(roundedValue))
-            }
-            SliderView(sliderValue: $sliderValue)
-        }
-    }
-}
+       ZStack {
+         BackgroundView(game: $game)
+         VStack {
+           InstructionsHeaderView(game: $game)
+             .padding(.bottom, alertIsVisible ? 0 : 100)
+           if alertIsVisible {
+             PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+           } else {
+               HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+           }
+         }
+         if !alertIsVisible {
+           SliderView(sliderValue: $sliderValue)
+         }
+       }
+     }
+   }
 
 struct InstructionsHeaderView: View {    
     @Binding var game: Game
     
     var body: some View {
-        VStack(spacing: 8) {
-        InstructionsTextView(text: "🎯🎯🎯\nput the bulls eye as close as you can")
-        BigtextView(text: "\(game.target)")
+        VStack {
+            InstructionsTextView(text: "🎯🎯🎯\nput the bulls eye as close as you can to")
+                .padding(.leading, 30)
+                .padding(.trailing, 30)
+            BigtextView(text: "\(game.target)")
         }
     }
 }
@@ -48,6 +56,7 @@ struct SliderView: View {
                 .foregroundColor(Color("FontColor"))
             SliderLabelTextView(text: "100")
         }
+        .padding()
     }
 }
 
@@ -56,8 +65,7 @@ struct HitMeButtonView: View {
     @Binding var alertIsVisible: Bool
     @Binding var sliderValue: Double
     @Binding var game: Game
-    var roundedValue: Int
-    
+
     var body: some View {
         Button {
             withAnimation {
@@ -81,15 +89,7 @@ struct HitMeButtonView: View {
             RoundedRectangle(cornerRadius: 21.0)
                 .strokeBorder(Color.white, lineWidth: 3.0)
         )
-        .alert("Hello there!", isPresented: $alertIsVisible) {
-            Button("Awesome!") {
-                let roundedValue = roundedValue
-                let points = game.returnPoints(sliderValue: roundedValue)
-                game.startNewRound(points: points)
-            }
-        } message: {
-            Text("The slider's value is \(roundedValue).\n" + "You scored \(game.returnPoints(sliderValue: roundedValue)) points.")
-        }
+        
     }
 }
 

@@ -79,7 +79,6 @@ struct ButtonAlertTextView: View {
                 Color("AccentColor")
             )
             .cornerRadius(12)
-            
     }
 }
 
