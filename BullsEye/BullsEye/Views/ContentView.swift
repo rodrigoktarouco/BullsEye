@@ -20,13 +20,15 @@ struct ContentView: View {
            InstructionsHeaderView(game: $game)
              .padding(.bottom, alertIsVisible ? 0 : 100)
            if alertIsVisible {
-             PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+               PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                   .transition(.scale)
            } else {
-               HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+               HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game).transition(.scale)
            }
          }
          if !alertIsVisible {
-           SliderView(sliderValue: $sliderValue)
+             SliderView(sliderValue: $sliderValue)
+                 .transition(.scale)
          }
        }
      }
@@ -86,8 +88,8 @@ struct HitMeButtonView: View {
         .foregroundColor(.white)
         .cornerRadius(21)
         .overlay(
-            RoundedRectangle(cornerRadius: 21.0)
-                .strokeBorder(Color.white, lineWidth: 3.0)
+            RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius)
+                .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth)
         )
         
     }
