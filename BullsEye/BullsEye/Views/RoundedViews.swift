@@ -49,8 +49,6 @@ struct RoundedTextView: View {
             .frame(width: Constants.General.roundedViewWidth, height: Constants.General.roundedViewHeight)
             .overlay(
                 RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius).strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
-                   
-                    
             )
     }
 }

@@ -11,6 +11,8 @@
 		C327F7AD28730BE600382915 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C327F7AC28730BE600382915 /* Constants.swift */; };
 		C36F7D7B2869C943005413C1 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F7D7A2869C943005413C1 /* BackgroundView.swift */; };
 		C394137B28688F0B00222F83 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C394137A28688F0B00222F83 /* RoundedViews.swift */; };
+		C3ADE624287457E7008E05BB /* LeaderBoardTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE623287457E7008E05BB /* LeaderBoardTextStyle.swift */; };
+		C3ADE626287458F2008E05BB /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE625287458F2008E05BB /* LeaderBoardView.swift */; };
 		C3D84AE8286733BE0048172B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D84AE7286733BE0048172B /* TextView.swift */; };
 		EF440C862859046D00E569E4 /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF440C852859046D00E569E4 /* BullsEyeTests.swift */; };
 		EFEBF86F2857C3710001E83E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBF86E2857C3710001E83E /* Game.swift */; };
@@ -35,6 +37,8 @@
 		C327F7AC28730BE600382915 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C36F7D7A2869C943005413C1 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		C394137A28688F0B00222F83 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		C3ADE623287457E7008E05BB /* LeaderBoardTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTextStyle.swift; sourceTree = "<group>"; };
+		C3ADE625287458F2008E05BB /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		C3D84AE7286733BE0048172B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		EF440C832859046D00E569E4 /* BullsEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullsEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF440C852859046D00E569E4 /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C3ADE622287457B5008E05BB /* TextStyles */ = {
+			isa = PBXGroup;
+			children = (
+				C3ADE623287457E7008E05BB /* LeaderBoardTextStyle.swift */,
+			);
+			path = TextStyles;
+			sourceTree = "<group>";
+		};
 		EF440C842859046D00E569E4 /* BullsEyeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +101,7 @@
 				C394137A28688F0B00222F83 /* RoundedViews.swift */,
 				C36F7D7A2869C943005413C1 /* BackgroundView.swift */,
 				C3070B8628706F8000F148AA /* PointsView.swift */,
+				C3ADE625287458F2008E05BB /* LeaderBoardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -123,6 +136,7 @@
 		EFEF3B52285534EC00E5EF1A /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				C3ADE622287457B5008E05BB /* TextStyles */,
 				EFEBF86D2857C3360001E83E /* App */,
 				EFEBF86B2857C3230001E83E /* Models */,
 				EFEBF86C2857C32A0001E83E /* Views */,
@@ -251,7 +265,9 @@
 				EFEF3B56285534EC00E5EF1A /* ContentView.swift in Sources */,
 				C3D84AE8286733BE0048172B /* TextView.swift in Sources */,
 				C394137B28688F0B00222F83 /* RoundedViews.swift in Sources */,
+				C3ADE626287458F2008E05BB /* LeaderBoardView.swift in Sources */,
 				C3070B8728706F8000F148AA /* PointsView.swift in Sources */,
+				C3ADE624287457E7008E05BB /* LeaderBoardTextStyle.swift in Sources */,
 				EFEBF86F2857C3710001E83E /* Game.swift in Sources */,
 				EFEF3B54285534EC00E5EF1A /* BullsEyeApp.swift in Sources */,
 				C327F7AD28730BE600382915 /* Constants.swift in Sources */,
