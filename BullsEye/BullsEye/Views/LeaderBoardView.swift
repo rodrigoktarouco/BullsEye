@@ -9,60 +9,82 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            RowView()
+        ZStack {
+            Color("BackgroundColor").edgesIgnoringSafeArea(.all)
+            VStack {
+                HeaderView()
+                LabelView()
+                RowView(index: 1, score: 459, date: Date())
+            }
         }
     }
 }
 
 struct RowView: View {
+    let index: Int
+    let score: Int
+    let date: Date
+    
     var body: some View {
         HStack {
-            LeaderBoardRoundedTextView(text: "1").padding(.horizontal, 0)
+            LeaderBoardRoundedTextView(text: String(index))
             Spacer()
-            LeaderBoardTextView(text: "DOG")
+            ScoreTextView(score: score)
+                .frame(maxWidth: Constants.LeaderBoard.leaderBoardScoreWidth)
             Spacer()
-            LeaderBoardTextView(text: "459")
-            Spacer()
-            LeaderBoardTextView(text: "4")
-            Spacer()
+            DateTextView(date: date)
+                .frame(maxWidth: Constants.LeaderBoard.leaderBoardDateWidth)
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: Constants.General.roundedCornerRadius ).strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
+        .frame(maxWidth: Constants.LeaderBoard.leaderBoardMaxRowWidth)
+        .background(
+            RoundedRectangle(cornerRadius: .infinity).strokeBorder(Color("LeaderBoardRowColor"), lineWidth: Constants.General.strokeWidth)
         )
+        .padding(.horizontal)
+        .frame(maxWidth: Constants.LeaderBoard.leaderBoardMaxRowWidth)
     }
 }
 
-struct LeaderBoardRoundedTextView: View {
-    var text: String
-    
+struct HeaderView: View {
     var body: some View {
-        Text(text)
-            .font(.title2)
-            .bold()
-            .kerning(-0.2)
-            .frame(width: Constants.General.roundedViewWidth, height: Constants.General.roundedViewHeight)
-            .background(
-                Circle().strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
-            )
+        ZStack {
+            HStack {
+                Spacer()
+                BigBoldText(text: "Leaderboard")
+                Spacer()
+                Button {
+                    
+                } label: {
+                    RoundedImageViewFilled(systemImage: "xmark")
+                }
+            }.padding()
+        }
     }
 }
 
-struct LeaderBoardTextView: View {
-    var text: String
-    
+struct LabelView: View {
     var body: some View {
-        Text(text)
-            .font(.title2)
-            .bold()
-            .kerning(-0.2)
-            .foregroundColor(Color("FontColor"))
+        HStack {
+            Spacer()
+                .frame(width: Constants.General.roundedViewLength)
+            Spacer()
+            ButtonTextView(text: "Score").frame(width: Constants.LeaderBoard.leaderBoardScoreWidth)
+            Spacer()
+            ButtonTextView(text: "Date").frame(width: Constants.LeaderBoard.leaderBoardDateWidth)
+            
+        }
+        .padding(.horizontal)
+        .frame(maxWidth: Constants.LeaderBoard.leaderBoardMaxRowWidth)
     }
 }
 
 struct LeaderBoardView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderBoardView()
+        LeaderBoardView()
+            .previewInterfaceOrientation(.landscapeLeft)
+        LeaderBoardView().preferredColorScheme(.dark)
+        LeaderBoardView()
+            .previewInterfaceOrientation(.landscapeLeft)
+            .preferredColorScheme(.dark)
     }
 }

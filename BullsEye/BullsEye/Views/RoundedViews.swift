@@ -53,6 +53,23 @@ struct RoundedTextView: View {
     }
 }
 
+struct LeaderBoardRoundedTextView: View {
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .font(.title2)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("FontColor"))
+            .frame(width: 56, height: 56)
+            .overlay(
+                Circle()
+                    .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
+            )
+    }
+}
+
 struct RoundedViews_Previews: PreviewProvider {
     static var previews: some View {
             RoundedImageViewStroke(systemImage: "list.dash")
@@ -62,6 +79,7 @@ struct RoundedViews_Previews: PreviewProvider {
             RoundedImageViewFilled(systemImage: "list.dash")
         RoundedImageViewFilled(systemImage: "list.dash")
             .preferredColorScheme(.dark)
+        LeaderBoardRoundedTextView(text: "1")
     }
 }
 

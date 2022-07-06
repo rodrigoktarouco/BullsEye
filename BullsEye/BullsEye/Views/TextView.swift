@@ -53,6 +53,7 @@ struct ButtonTextView: View {
     }
 }
 
+
 struct BodyTextView: View {
     var text: String
     
@@ -82,7 +83,41 @@ struct ButtonAlertTextView: View {
     }
 }
 
+struct ScoreTextView: View {
+    var score: Int
+    
+    var body: some View {
+        Text((String(score)))
+            .font(.title2)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("FontColor"))
+    }
+}
 
+struct DateTextView: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .font(.title2)
+            .bold()
+            .kerning(-0.2)
+            .foregroundColor(Color("FontColor"))
+            
+    }
+}
+
+struct BigBoldText: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .kerning(2.0)
+            .foregroundColor(Color("FontColor"))
+            .fontWeight(.black)
+            .font(.title)
+    }
+}
 
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
@@ -91,6 +126,9 @@ struct TextView_Previews: PreviewProvider {
             BigtextView(text: "999")
             BodyTextView(text: "200")
             ButtonAlertTextView(text: "Start new Round")
+            ScoreTextView(score: 450)
+            DateTextView(date: Date())
+            BigBoldText(text: "Leaderboard")
         }.padding()
     }
 }
