@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct LeaderBoardView: View {
+    @Binding var leaderBoardIsShowing: Bool
     var body: some View {
         ZStack {
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)
             VStack {
-                HeaderView()
+                HeaderView( leaderBoardIsShowing: $leaderBoardIsShowing)
                 LabelView()
                 RowView(index: 1, score: 459, date: Date())
             }
@@ -45,6 +46,10 @@ struct RowView: View {
 }
 
 struct HeaderView: View {
+    @Environment (\.horizontalSizeClass) var horizontalSizeclass
+    @Environment (\.verticalSizeClass) var verticalSizeClass
+    @Binding var leaderBoardIsShowing: Bool
+    
     var body: some View {
         ZStack {
             HStack {
@@ -52,7 +57,9 @@ struct HeaderView: View {
                 BigBoldText(text: "Leaderboard")
                 Spacer()
                 Button {
-                    
+                    withAnimation {
+                        leaderBoardIsShowing = false
+                    }
                 } label: {
                     RoundedImageViewFilled(systemImage: "xmark")
                 }
@@ -78,12 +85,13 @@ struct LabelView: View {
 }
 
 struct LeaderBoardView_Previews: PreviewProvider {
+    static private let leaderBoardIsShowing = Binding.constant(false)
     static var previews: some View {
-        LeaderBoardView()
-        LeaderBoardView()
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
             .previewInterfaceOrientation(.landscapeLeft)
-        LeaderBoardView().preferredColorScheme(.dark)
-        LeaderBoardView()
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing).preferredColorScheme(.dark)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
             .previewInterfaceOrientation(.landscapeLeft)
             .preferredColorScheme(.dark)
     }
