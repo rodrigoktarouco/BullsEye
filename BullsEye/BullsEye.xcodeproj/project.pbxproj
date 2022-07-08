@@ -14,6 +14,7 @@
 		C3ADE624287457E7008E05BB /* LeaderBoardTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE623287457E7008E05BB /* LeaderBoardTextStyle.swift */; };
 		C3ADE626287458F2008E05BB /* LeaderBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3ADE625287458F2008E05BB /* LeaderBoardView.swift */; };
 		C3D84AE8286733BE0048172B /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D84AE7286733BE0048172B /* TextView.swift */; };
+		C3DBE66228784E2000D425C4 /* LeaderBoardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DBE66128784E2000D425C4 /* LeaderBoardEntry.swift */; };
 		EF440C862859046D00E569E4 /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF440C852859046D00E569E4 /* BullsEyeTests.swift */; };
 		EFEBF86F2857C3710001E83E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBF86E2857C3710001E83E /* Game.swift */; };
 		EFEF3B54285534EC00E5EF1A /* BullsEyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEF3B53285534EC00E5EF1A /* BullsEyeApp.swift */; };
@@ -40,6 +41,7 @@
 		C3ADE623287457E7008E05BB /* LeaderBoardTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardTextStyle.swift; sourceTree = "<group>"; };
 		C3ADE625287458F2008E05BB /* LeaderBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardView.swift; sourceTree = "<group>"; };
 		C3D84AE7286733BE0048172B /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		C3DBE66128784E2000D425C4 /* LeaderBoardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardEntry.swift; sourceTree = "<group>"; };
 		EF440C832859046D00E569E4 /* BullsEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullsEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF440C852859046D00E569E4 /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
 		EFEBF86E2857C3710001E83E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				EFEBF86E2857C3710001E83E /* Game.swift */,
 				C327F7AC28730BE600382915 /* Constants.swift */,
+				C3DBE66128784E2000D425C4 /* LeaderBoardEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C3ADE624287457E7008E05BB /* LeaderBoardTextStyle.swift in Sources */,
 				EFEBF86F2857C3710001E83E /* Game.swift in Sources */,
 				EFEF3B54285534EC00E5EF1A /* BullsEyeApp.swift in Sources */,
+				C3DBE66228784E2000D425C4 /* LeaderBoardEntry.swift in Sources */,
 				C327F7AD28730BE600382915 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
