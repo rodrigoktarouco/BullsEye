@@ -44,7 +44,7 @@ struct TopView: View {
             }.sheet(isPresented: $leaderBoardIsShowing) {
                 
             } content: {
-                LeaderBoardView(leaderBoardIsShowing: $leaderBoardIsShowing)
+                LeaderBoardView(leaderBoardIsShowing: $leaderBoardIsShowing, game: $game)
             }
 
         }

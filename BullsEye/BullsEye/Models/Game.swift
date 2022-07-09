@@ -13,6 +13,19 @@ struct Game {
     var round = 1
     var leaderBoardEntries = [LeaderBoardEntry]()
     
+    init(loadTestData: Bool = false) {
+        if loadTestData {
+            leaderBoardEntries.append(LeaderBoardEntry(points: 100, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 34, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 53, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 34, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 34, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 76, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 89, date: Date()))
+            leaderBoardEntries.append(LeaderBoardEntry(points: 12, date: Date()))
+        }
+    }
+    
     
     func returnPoints(sliderValue: Int) -> Int {
         let points = 100 - abs((target - sliderValue))

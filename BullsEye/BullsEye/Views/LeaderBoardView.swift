@@ -9,13 +9,22 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @Binding var leaderBoardIsShowing: Bool
+    @Binding var game: Game
+    
     var body: some View {
         ZStack {
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)
             VStack {
                 HeaderView( leaderBoardIsShowing: $leaderBoardIsShowing)
-                LabelView()
-                RowView(index: 1, score: 459, date: Date())
+                ScrollView {
+                    VStack(spacing: 10) {
+                        LabelView()
+                        ForEach(game.leaderBoardEntries.indices) { indice in
+                            let leaderBoardEntry = game.leaderBoardEntries[indice]
+                            RowView(index: indice, score: leaderBoardEntry.points, date: leaderBoardEntry.date)
+                        }
+                    }
+                }
             }
         }
     }
@@ -63,7 +72,7 @@ struct HeaderView: View {
                 } label: {
                     RoundedImageViewFilled(systemImage: "xmark")
                 }
-            }.padding()
+            }.padding(.top)
         }
     }
 }
@@ -86,12 +95,13 @@ struct LabelView: View {
 
 struct LeaderBoardView_Previews: PreviewProvider {
     static private let leaderBoardIsShowing = Binding.constant(false)
+    static private let game = Binding.constant(Game(loadTestData: true))
     static var previews: some View {
-        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
-        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing, game: game)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing, game: game)
             .previewInterfaceOrientation(.landscapeLeft)
-        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing).preferredColorScheme(.dark)
-        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing, game: game).preferredColorScheme(.dark)
+        LeaderBoardView(leaderBoardIsShowing: leaderBoardIsShowing, game: game)
             .previewInterfaceOrientation(.landscapeLeft)
             .preferredColorScheme(.dark)
     }
